@@ -1,0 +1,91 @@
+-->1
+function countWordOccurrences(sentence, word) {
+    const words = sentence.split(" ");
+    let count = 0;
+    words.forEach(function (w) {
+        if (w.toLowerCase() === word.toLowerCase()) {
+            count++;
+        }
+    });
+    return count;
+}
+const sentence = "The quick brown fox jumps over the lazy dog. The dog jumps too.";
+const word = "the";
+const occurrences = countWordOccurrences(sentence, word);
+console.log(`The word "${word}" occurs ${occurrences} times in the sentence.`);
+
+-->2
+const books = [
+    { id: 3, title: "Eloquent JavaScript", author: "Marijn Haverbeke" },
+    { id: 1, title: "JavaScript: The Good Parts", author: "Douglas Crockford" },
+    { id: 2, title: "You Don't Know JS", author: "Kyle Simpson" }
+];
+ sortBooksById(booksArray) {
+    return booksArray.sort((a, b) => a.id - b.id);
+}
+const sortedBooks = sortBooksById(books);
+console.log("Sorted Books by ID:");
+console.log(sortedBooks);
+
+-->3
+function insertDashes(number) {
+    const strNumber = String(number);
+    let result = strNumber[0];
+    for (let i = 1; i < strNumber.length; i++) {
+        if (strNumber[i] % 2 === 0 && strNumber[i - 1] % 2 === 0) {
+            result += '-' + strNumber[i];
+        } else {
+            result += strNumber[i];
+        }
+    }
+    return result;
+}
+const number = 025468;
+const dashedNumber = insertDashes(number);
+console.log(dashedNumber);
+
+-->4
+function sortStringAlphabetically(str) {
+    const chars = str.split('');
+    const sortedChars = chars.sort();
+    const sortedStr = sortedChars.join('');
+    return sortedStr;
+}
+const inputString = "hello";
+const sortedString = sortStringAlphabetically(inputString);
+console.log(sortedString);
+
+-->5
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Image on Mouseover</title>
+<style>
+    #image {
+        width: 200px;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    #image:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+<body>
+
+<img id="image" src="original_image.jpg" alt="Original Image" onmouseover="changeImage()" onmouseout="restoreImage()">
+
+<script>
+function changeImage() {
+    document.getElementById("image").src = "new_image.jpg";
+}
+
+function restoreImage() {
+    document.getElementById("image").src = "original_image.jpg";
+}
+</script>
+
+</body>
+</html>
